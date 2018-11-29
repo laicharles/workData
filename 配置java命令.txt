@@ -1,0 +1,29 @@
+
+
+#卸载openjdk
+rpm -qa|grep jdk |xargs rpm -e --nodeps
+
+#下载tar
+
+sudo tar zxvf ./jdk-7u79-linux-x64.tar.gz  -C /usr/lib/jvm 
+
+cd /usr/lib/jvm 
+
+#可选择
+#sudo mv jdk1.7.0/ java-7-sun
+
+
+
+#setJavaEnv
+
+JAVA_HOME=/usr/lib/jvm/jdk-11.0.1
+export JAVA_HOME
+JRE_HOME=/usr/lib/jvm/jdk-11.0.1/jre
+export JRE_HOME
+PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+export PATH
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export CLASSPATH
+
+
+resource /etc/profile
